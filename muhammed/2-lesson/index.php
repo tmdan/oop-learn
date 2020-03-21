@@ -24,7 +24,7 @@ class Cat {
 
 
     public function getOwner(){
-         return strtoupper($this->owner);
+        return strtoupper($this->owner);
     }
 
     public function setOwner($name){
