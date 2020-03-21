@@ -22,7 +22,7 @@ class Cat {
         echo $this->voice;
     }
 
-    
+
 
     public function getOwner(){
         return strtoupper($this->owner);
