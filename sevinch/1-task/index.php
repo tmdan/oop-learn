@@ -11,8 +11,6 @@ class animal{
     public function golos(){
         echo $this->vote;
     }
-
-
 }
 
 $peach=new animal;
