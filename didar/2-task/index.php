@@ -43,9 +43,9 @@ class Student
 
 $firststudent = new Student();
 
-$firststudent->setname(Didar );
-$firststudent->setsecondname(Nepesow);
-$firststudent->setscholarship(100);
+$firststudent->setname("Didar" );
+$firststudent->setsecondname("Nepesow");
+$firststudent->setscholarship("100");
 $firststudent->setsolary(150);
 $firststudent->getFullName();
 echo "<br>";
