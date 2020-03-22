@@ -74,52 +74,29 @@
 //    {"name"=>"Muhammed", "kurs"=>2, "univer"=>"BSUIR"},
 //    {"name"=>"Yana", "kurs"=>3, "univer"=>"BNTU"},
 //]
+    $names = ["Muhammed", "Yana", "Dudar", "Sevinch"];
 
-//    $names = ["Muhammed", "Yana", "Dudar", "Sevinch"];
-//
-//    $persons = [];
-//
-//    class person
-//    {
-//        public $name;
-//    }
-//
-//    for ($i = 0; $i < count($names); $i++) {
-//        $persons[$i] = new Person();
-//        $persons[$i]->name = $names[$i];
-//    }
+    $persons = [];
 
-//    for ($i = 0; $i < count($names); $i++) {
-//        echo $persons[$i]->name;
-//    }
+    class person
+    {
+        public $name;
+    }
 
-//    foreach ($persons as $person) {
-//        echo $person->name;
-//    }
+    for ($i = 0; $i < count($names); $i++) {
+        $persons[$i] = new Person();
+        $persons[$i]->name = $names[$i];
+    }
+
+    for ($i = 0; $i < count($names); $i++) {
+        echo $persons[$i]->name;
+    }
+
+    foreach ($persons as $person) {
+        echo $person->name;
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
