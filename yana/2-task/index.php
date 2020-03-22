@@ -50,9 +50,9 @@ $Petya->setName("Petya");
 
 $Petya->setName2("Pupkin");
 
-$Petya->set_stip("500");
+$Petya->set_stip(500);
 
-$Petya->set_zp("300");
+$Petya->set_zp(300);
 
 
 echo $Petya->getFullName();
