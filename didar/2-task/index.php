@@ -1,4 +1,5 @@
 <?php
+
 class Student
 {
     private $name;
@@ -6,35 +7,64 @@ class Student
     private $scholarship;
     private $salary;
 
-    public function setname($name)
+    /**
+     * @param string $name
+     * @return string
+     */
+    public function setname(string $name): string
     {
-    $this->name = $name;
+        $this->name = $name;
     }
-    public function getname()
+
+    /**
+     * @return string
+     */
+    public function getname(): string
     {
-     return $this->name;
+        return $this->name;
     }
-    public function setsecondname($secondn)
+
+    /**
+     * @param string $secondn
+     */
+    public function setsecondname(string $secondn): void
     {
         $this->secondname = $secondn;
     }
-    public function  getsecondname()
+
+    /**
+     * @return string
+     */
+    public function getsecondname(): string
     {
         return $this->secondname;
     }
-    public function setscholarship($scholars)
+
+    /**
+     * @param int $scholars
+     */
+    public function setscholarship(int $scholars): void
     {
-        $this->scholarship=$scholars;
+        $this->scholarship = $scholars;
     }
-    public function setsolary($solary)
+
+    /**
+     * @param int $solary
+     */
+    public function setsolary(int $solary)
     {
         $this->salary = $solary;
     }
+
     public function getFullName()
     {
         echo $this->name . $this->secondname;
     }
-    public function calculate()
+
+    /**
+     *
+     */
+    public function calculate():void
     {
         echo $this->scholarship + $this->salary;
     }
@@ -43,10 +73,10 @@ class Student
 
 $firststudent = new Student();
 
-$firststudent->setname("Didar" );
+$firststudent->setname("Didar");
 $firststudent->setsecondname("Nepesow");
 $firststudent->setscholarship("100");
-$firststudent->setsolary(150);
+$firststudent->setsolary("150");
 $firststudent->getFullName();
 echo "<br>";
 $firststudent->calculate();
