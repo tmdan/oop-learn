@@ -47,8 +47,8 @@ public function calculate()
 $Isa=new Student();
 $Isa->setName("Isamyrat");
 $Isa->setSurname("Gurbanow");
-$Isa->setStipendia("500");
-$Isa->setZp("900");
+$Isa->setStipendia(500);
+$Isa->setZp(900);
 $Isa->getfullname();echo"<br>";
 $Isa->calculate();
 
