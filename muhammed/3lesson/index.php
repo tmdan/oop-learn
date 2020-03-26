@@ -61,18 +61,32 @@
 //print_r($stack);
 
 $names=["Muhammed","Yana", "Dudar", "Sevinch"];
-$persons=[];
+$lastNames=["Ivanov", "Pupkina", "Petrov", "Sidorova"];
+$uni=["BGTU","BGMU", "BNTU", "BGATU"];
 
-class person{
+$students=[];
+
+class student{
     public $name;
-}
+    public $lName;
+    public $univer;
+    }
 
 for($i=0;$i<count($names);$i++){
-    $persons[$i]=new Person();
-    $persons[$i]->name=$names[$i];
+    $students[$i]=new student();
+    $students[$i]->name=$names[$i];
+    $students[$i]->lName=$lastNames[$i];
 }
 
-
+on)
+{
+    echo "Имя: " . $person->name;
+    echo "<br>";
+    echo "Университет: " . $person->univ;
+    echo "<br>";
+    echo "Курс: " . $person->kurs;
+    echo "<br><br>";
+}
 
 
 
