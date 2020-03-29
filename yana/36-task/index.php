@@ -27,10 +27,13 @@ class student{
     public $lName;
     public $univ;
 
-
     public function sred_ball()
     {
-        $sr_b = ($this->univ->subjects[0]->grade + $this->univ->subjects[1]->grade + $this->univ->subjects[2]->grade) / 3;
+        $sum=0;
+        for($n=0;$n<count($this->univ->subjects);$n++) {
+            $sum += $this->univ->subjects[$n]->grade;
+        }
+        $sr_b = $sum / $n;
         return $sr_b;
     }
 }
@@ -40,14 +43,14 @@ for($i=0;$i<count($names);$i++){
     $students[$i]->name=$names[$i];
     $students[$i]->lName=$lastNames[$i];
     $students[$i]->univ=new univer;
-    $students[$i]->univ->name=$uni[rand(0,5)];
-    $students[$i]->univ->facult=$fac[rand(0,5)];
+    $students[$i]->univ->name=$uni[rand(0,3)];
+    $students[$i]->univ->facult=$fac[rand(0,4)];
     for($j=0;$j<3;$j++) {
         $students[$i]->univ->subjects[$j] = new subject;
         $students[$i]->univ->subjects[$j]->name = $pred[rand(0, 5)];
         $students[$i]->univ->subjects[$j]->grade = $gr[rand(0, 5)];
     }
-    echo $students[$i]->sred_ball();
+    echo "Студент: " . $students[$i]->name . " учится в : " . $students[$i]->univ->name . " и имеет средний балл: " . $students[$i]->sred_ball();
     echo "<br>";
 }
 
