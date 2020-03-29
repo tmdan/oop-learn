@@ -26,6 +26,13 @@ class student{
     public $name;
     public $lName;
     public $univ;
+
+
+    public function sred_ball()
+    {
+        $sr_b = ($this->univ->subjects[0]->grade + $this->univ->subjects[1]->grade + $this->univ->subjects[2]->grade) / 3;
+        return $sr_b;
+    }
 }
 
 for($i=0;$i<count($names);$i++){
@@ -37,7 +44,10 @@ for($i=0;$i<count($names);$i++){
     $students[$i]->univ->facult=$fac[rand(0,5)];
     for($j=0;$j<3;$j++) {
         $students[$i]->univ->subjects[$j] = new subject;
-        $students[$i]->univ->subject[$j]->name = $pred[rand(0, 5)];
-        $students[$i]->univ->subject[$j]->grade = $gr[rand(0, 5)];
+        $students[$i]->univ->subjects[$j]->name = $pred[rand(0, 5)];
+        $students[$i]->univ->subjects[$j]->grade = $gr[rand(0, 5)];
     }
+    echo $students[$i]->sred_ball();
+    echo "<br>";
 }
+
