@@ -29,6 +29,7 @@ class student{
 
     public function sred_ball()
     {
+        $sum=0;
         for($n=0;$n<count($this->univ->subjects);$n++) {
             $sum += $this->univ->subjects[$n]->grade;
         }
