@@ -12,14 +12,15 @@ class person
     public $name;
     public $surname;
     public $univ;
-    public $pl;
-    public function calc($persons,$predmets){
-        for ($i = 0; $i < count($persons); $i++) {
-            echo "средняя оценка";
-            for ($n = 0; $n < count($predmets); $n++) {
-                echo ($persons[$i]->univ->predmets[$n]->value_pred + ($persons[$i]->univ->predmets[$n] + 1)->value_pred + ($persons[$i]->univ->predmets[$n] + 2)->value_pred) / 3;
-            }
+    public function calc(){
+        $un=0;
+
+        foreach ($this->univ->predmets as $predmet){
+            $un=+ $predmet->value_pred;
         }
+        $un=$un/count($this->univ->predmets);
+        return $un;
+
     }
 }
 
@@ -58,6 +59,9 @@ for ($i = 0; $i < count($persons); $i++) {
         echo $persons[$i]->univ->predmets[$n]->name_pred;
         echo $persons[$i]->univ->predmets[$n]->value_pred;
         echo "<br>";
-
     }
+    echo "Srednaya bal";
+    echo $persons[$i]->calc();
+    echo "<br>";
 }
+
