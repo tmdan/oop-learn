@@ -11,7 +11,6 @@
 //- Имя (string)
 //-Доход (int)
 
-
 $names = ["Cottege", "Plan", "Flat"];
 $scpecs = ["House", "Hakimlik", "Bank"];
 $name0f_owners = ["Ivanow", "Petrov", "Sidorov"];
@@ -35,11 +34,15 @@ class buidl
         }
     }
 }
+
+
 class Owners
 {
     public $name_ofown;
     public $point;
 }
+
+
 for ($i = 0; $i < count($names); $i++) {
     $owners[$i] = new buidl();
     $owners[$i]->name = $names[rand(0, 3)];
@@ -49,6 +52,8 @@ for ($i = 0; $i < count($names); $i++) {
     $owners[$i]->Owner->name_ofown = $name0f_owners[rand(0, 3)];
     $owners[$i]->Owner->point = rand(0, 999);
 }
+
+
 for ($i = 0; $i < count($owners); $i++) {
     echo $owners[$i]->name;
     echo $owners[$i]->Specs;
@@ -56,7 +61,6 @@ for ($i = 0; $i < count($owners); $i++) {
     echo $owners[$i]->Owner->name_ofown;
     echo $owners[$i]->Owner->point;
     echo "<br>";
-
     echo "Stawka nalogowaya";
     echo $owners[$i]->calc();
     echo "<br>";
