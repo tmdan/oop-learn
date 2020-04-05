@@ -14,6 +14,11 @@ class Engine
         return $this->oil;
     }
 
+    //Залить бензин
+    public function setOil($oil){
+        //todo
+    }
+
     public function nextOil()
     {
         $this->oil -= 1;
@@ -45,9 +50,14 @@ class Car
         $this->kl = $kl;
     }
 
+    //Обращение к двигателю в заливаем бензин
+    public function setOil(){
+        //TODO
+    }
+
     public function sellOil()
     {
-        if ($this->getOil() != null) {
+        if ($this->engine->getOil() !== 0) {
             $this->engine->nextOil();
             echo "Вы проехали 1 кл";
         } else echo "Бензин закончисля";
@@ -55,5 +65,13 @@ class Car
 }
 
 $Ford = new Car("Red", "Track", new Engine(5));
+$Ford->sellOil();
+$Ford->sellOil();
+$Ford->sellOil();
+$Ford->sellOil();
+$Ford->sellOil();
+$Ford->sellOil();
+$Ford->setOil(2);
+$Ford->sellOil();
 $Ford->sellOil();
 var_dump($Ford);
