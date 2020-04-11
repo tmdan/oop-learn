@@ -21,7 +21,7 @@ class studet{
     }
     public function calculeyt(){
         $result=0;
-foreach($this->univer->pred as predmeti){
+foreach($this->univer->predmets as predmet){
     $result=$predmet->ball;
     $result=$result/count($this->univer->predmet);
     return $result;
