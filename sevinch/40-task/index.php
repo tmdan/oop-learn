@@ -17,10 +17,8 @@ class Country {
 
     }
 
-    public function __constract($population){
-
+    public function __construct($population){
         $this->population=array_merge($this->population,$population);
-
     }
 }
 
@@ -37,8 +35,7 @@ class Human {
         return $this->age;
     }
 
-
-    public function __constract($name,$age){
+    public function __construct($name,$age){
         $this->name=$name;
         $this->age=$age;
     }
@@ -49,6 +46,5 @@ $uz=new Country([
     new Human("Севинч",rand(1,80)),
     new Human("Яна",rand(1,50)),
 ]);
-
 
 var_dump($uz);
