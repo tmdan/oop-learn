@@ -31,7 +31,7 @@ class Predmet {
     public function setKurs($kurs){
         return $this->kurs=$kurs;
     }
-    
+
     public function getName(){
         return $this->name;
     }
@@ -159,10 +159,6 @@ class Univer
     }
 }
 
-
-
-
-
 $univer=new Univer("Bgiur", 2, [
     new Predmet('Математика', 4, 1),
     new Predmet('Философия', 7, 1),
@@ -172,18 +168,35 @@ $univer=new Univer("Bgiur", 2, [
     new Predmet('Машинное обучение', 7, 2),
 ]);
 
-
-
 $Parker = new Student("Adam",$univer);
 
+var_dump($Parker->getuniver());
 
-var_dump($Parker->getuniver()->getPredmetsByCourd(1));
 
-// echo $Parker->getuniver()->getKurs() . "<br>";
-// $Parker->getuniver()->nextKurs();
-// echo $Parker->getuniver()->getKurs() . "<br>";
-// $Parker->getuniver()->nextKurs();
-// echo $Parker->getuniver()->getKurs() . "<br>";
-// $Parker->getuniver()->nextKurs();
-// echo $Parker->getuniver()->getKurs() . "<br>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
