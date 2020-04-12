@@ -1,8 +1,25 @@
 <?php
 
+class Engine{
+
+    private $azot;
+
+    public function on(){
+        echo "Двигатель запущен";
+    }
+
+    public function off(){
+        echo "Двигатель заглушен";
+    }
+}
+
+
 class Car {
 
-    //Двигатель
+    /**
+     * Двигатель
+     * @var Engine
+     */
     public $engine;
 
     //Двери
@@ -13,6 +30,23 @@ class Car {
 
     //Цвет
     public $colors;
+
+    public function setColor($colors){
+        $this->color=$colors;
+    }
+
+    public function setEngine($engine){
+        $this->engine=$engine;
+    }
+
+    public function on(){
+        $this->engine->on();
+    }
+
+    public function off(){
+        $this->engine->off();
+    }
+
 
 }
 
@@ -27,7 +61,7 @@ class SportCar extends Car{
 //Комбаин для сбора пщеницы
 class Harvester extends Car{
     //Аппарат для сбора пщеницы.
-    public $getting_tools;
+    public $gettingTools;
 }
 
 
