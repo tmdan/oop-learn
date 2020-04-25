@@ -50,6 +50,8 @@ class Student extends Mother
     private function getStipen()
     {
         $sum=0;
+
+
         $average=0;
         for ($i=0; $i<count($this->univer->predmets); $i++)
         {
