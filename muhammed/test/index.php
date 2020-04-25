@@ -1,132 +1,79 @@
 <?php
 
 
-class Car
+class Video
 {
-    private $namecar;
-    private $car_model_name;
-    private $max_speed;
-    public $engine;
+    private $name;
+    private $views;
+    private $rent;
 
-
-    public function on(){
-        $this->engine->run();
-    }
-
-
-    public function off(){
-        $this->engine->off();
-    }
-
-    public function getOldInfo(){
-        return $this->engine->getOld();
-    }
-
-
-    public function getEngineMoz(){
-        return $this->engine->moz;
-    }
-
-    public function setNamecar($namecar)
+    public function __construct($name, $views, $rent)
     {
-        if (is_string($namecar)) {
-            $this->namecar = $namecar;
-        }
+        $this->name = $name;
+        $this->views=$views;
+        $this->rent=$rent;
     }
 
-    public function getNamecar()
-    {
-        return $this->namecar;
-    }
-
-    public function setCar_model_car($car_model_name)
-    {
-        $this->car_model_name = $car_model_name;
-    }
-
-    public function getCar_model_car()
-    {
-        return $this->car_model_name;
-    }
-
-    public function setmax_speed($max_speed)
-    {
-        if($this->speedCheck($max_speed))
-        {
-            $this->max_speed=$max_speed;
-        }
-
-        $this->max_speed = $max_speed;
+    public function getName(){
+        return $this->name;
     }
 
 
-    public function getmax_speed(int $max_speed)
-    {
-        $this->max_speed = $max_speed;
-    }
-
-
-    private function speedCheck($max_speed)
-    {
-        if (is_integer($max_speed) && $max_speed > 410 && $max_speed < 10)
-        {
-           return true;
-        }
-        else
-        {
-            return false;
-        }
+    public function getRent(){
+        return $this->rent;
     }
 }
 
 
+class VideoList{
 
+    private $list=[];
 
-class Engine{
-
-    private $old;
-    public $moz;
-
-    public function run(){
-        echo "Двигатель запущен";
+    public function getList(){
+        return $this->list;
     }
 
-    public function off(){
-        echo "Двигатель заглущен";
+    public function setList($list){
+        $this->list=array_merge($this->list,$list);
     }
 
-    public function getOld(){
-        return $this->old ."л";
+    public function whereName($value){
+
+        $this->list=array_filter($this->list, function ($video) use($value){
+            return $video->getName()===$value;
+        });
+
+        return $this;
     }
 
-    public function setOld($old){
-        return $this->old=$old;
+
+    public function whereRent($value){
+
+        $this->list=array_filter($this->list, function ($video) use($value){
+            return $video->getRent()===$value;
+        });
+
+        return $this;
+    }
+
+    public function __construct($list)
+    {
+        $this->setList($list);
     }
 
 }
 
 
-//Создаю двигатель на заводе
-$engine=new Engine;
-//Устанавливаю ограничение по мощности двигателя на заводе
-$engine->moz=245;
 
-//Заливаем масло с помощью клапана - СЕТТЕРА
-$engine->setOld(20);
+$videoList=new VideoList([
+    new Video("Изучаем строение компьютера", rand(1,10000), rand(1,3)),
+    new Video("Изучаем переменные", rand(1,10000), rand(1,3)),
+    new Video("Изучаем переменные", rand(1,10000), rand(1,3)),
+    new Video("Изучаем циклы", rand(1,10000), rand(1,3)),
+    new Video("Изучаем ГИТ", rand(1,10000), rand(1,3)),
+    new Video("Изучаем ООП", rand(1,10000), rand(1,3))
+]);
 
-//Создаем машину
-$car=new Car;
-//Установливаю двигатель
-$car->engine=$engine;
-
-
-echo $car->on();
-echo $car->off();
-echo $car->getOldInfo();
-
-
-
-
-
-
-
+var_dump($videoList
+    ->whereName('Изучаем переменные')
+    ->whereRent(2));
