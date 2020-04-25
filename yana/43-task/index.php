@@ -42,9 +42,8 @@ class SuperEngine implements EngineInterface
 
 
 
-class anotherEngine implements EngineInterface
+class anotherEngine  implements EngineInterface
 {
-
     public function on()
     {
         echo "Другой двигатель запущен";
@@ -104,7 +103,6 @@ class Car implements CarInterface
     {
         $this->engine->on();
     }
-
 
     public function offEngine()
     {
