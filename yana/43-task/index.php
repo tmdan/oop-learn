@@ -26,8 +26,6 @@ interface EngineInterface
 }
 
 
-
-
 class SuperEngine implements EngineInterface
 {
     public function on()
@@ -46,6 +44,7 @@ class SuperEngine implements EngineInterface
 
 class anotherEngine implements EngineInterface
 {
+
     public function on()
     {
         echo "Другой двигатель запущен";
@@ -55,6 +54,7 @@ class anotherEngine implements EngineInterface
     {
         echo "Другой двигатель заглушен";
     }
+
 }
 
 class StandartEngine implements EngineInterface
@@ -78,6 +78,7 @@ class Tractor implements CarInterface
     {
        $this->engine->on();
     }
+
     public function offEngine()
     {
         $this->engine->off();
@@ -103,6 +104,8 @@ class Car implements CarInterface
     {
         $this->engine->on();
     }
+
+
     public function offEngine()
     {
         $this->engine->off();
@@ -117,6 +120,7 @@ class Car implements CarInterface
     {
         //везет девочек в клуб
     }
+
 }
 
 class Truck implements CarInterface
@@ -127,10 +131,13 @@ class Truck implements CarInterface
     {
         $this->engine->on();
     }
+
+
     public function offEngine()
     {
         $this->engine->off();
     }
+
 
     public function __construct(EngineInterface $engine)
     {

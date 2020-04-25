@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Class Mother
- */
 class Mother
 {
     /**
@@ -18,9 +15,13 @@ class Mother
      */
     protected function getSalary($proc)
     {
-        return $this->work->getZp() * $proc / 100;
+        return $this->work->getZp()*$proc/100;
     }
 
+    public function setWork(Work $work)
+    {
+        $this->work=$work;
+    }
 }
 
 /**
@@ -103,29 +104,22 @@ class Student extends Mother
     public function getStipen(): int
     {
         $sum = 0;
-
-
         $average = 0;
+
         for ($i = 0; $i < count($this->univer->predmets); $i++) {
             $sum += $this->univer->predmets[$i]->ball;
-            $sum = 0;
-            $average = 0;
+        }
 
-            for ($i = 0; $i < count($this->univer->predmets); $i++) {
-                $sum += $this->univer->predmets[$i]->ball;
-            }
+        $average = $sum / count($this->univer->predmets);
 
-            $average = $sum / count($this->univer->predmets);
-
-            if ($average > 4 && $average < 5) {
-                return 200;
-            } else if ($average > 5 && $average < 7) {
-                return 500;
-            } else if ($average > 7 && $average < 10) {
-                return 1000;
-            } else {
-                die;
-            }
+        if ($average > 4 && $average < 5) {
+            return 200;
+        } else if ($average > 5 && $average < 7) {
+            return 500;
+        } else if ($average > 7 && $average < 10) {
+            return 1000;
+        } else {
+            die;
         }
     }
 
