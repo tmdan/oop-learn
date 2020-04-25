@@ -1,79 +1,110 @@
 <?php
 
-
-class Video
+interface AnimalInterface
 {
-    private $name;
-    private $views;
-    private $rent;
+    public function makeSound();
 
-    public function __construct($name, $views, $rent)
+    public function move();
+}
+
+
+class Animal implements AnimalInterface
+{
+
+    public function makeSound()
     {
-        $this->name = $name;
-        $this->views=$views;
-        $this->rent=$rent;
+        // TODO: Implement makeSound() method.
     }
 
-    public function getName(){
-        return $this->name;
-    }
-
-
-    public function getRent(){
-        return $this->rent;
+    public function move()
+    {
+        // TODO: Implement move() method.
     }
 }
 
 
-class VideoList{
+class Cat extends Animal
+{
 
-    private $list=[];
-
-    public function getList(){
-        return $this->list;
-    }
-
-    public function setList($list){
-        $this->list=array_merge($this->list,$list);
-    }
-
-    public function whereName($value){
-
-        $this->list=array_filter($this->list, function ($video) use($value){
-            return $video->getName()===$value;
-        });
-
-        return $this;
-    }
-
-
-    public function whereRent($value){
-
-        $this->list=array_filter($this->list, function ($video) use($value){
-            return $video->getRent()===$value;
-        });
-
-        return $this;
-    }
-
-    public function __construct($list)
+    public function makeSound()
     {
-        $this->setList($list);
+        echo "Кошка мяукает";
     }
-
 }
 
 
+class Snake extends Animal
+{
 
-$videoList=new VideoList([
-    new Video("Изучаем строение компьютера", rand(1,10000), rand(1,3)),
-    new Video("Изучаем переменные", rand(1,10000), rand(1,3)),
-    new Video("Изучаем переменные", rand(1,10000), rand(1,3)),
-    new Video("Изучаем циклы", rand(1,10000), rand(1,3)),
-    new Video("Изучаем ГИТ", rand(1,10000), rand(1,3)),
-    new Video("Изучаем ООП", rand(1,10000), rand(1,3))
-]);
+    public function makeSound()
+    {
+        echo "Змея шипит";
+    }
+}
 
-var_dump($videoList
-    ->whereName('Изучаем переменные')
-    ->whereRent(2));
+
+class Human extends Notify
+{
+
+    private $animal;
+
+    public function setAnimal(Animal $animal)
+    {
+        $this->animal = $animal;
+    }
+
+    public function animalMakeSound()
+    {
+        $this->animal->makeSound();
+    }
+}
+
+
+$Ivan = new Human();
+$Ivan->setAnimal(new Cat());
+$Ivan->setAnimal(new Snake());
+$Ivan->animalMakeSound();
+
+
+abstract class Notify
+{
+    protected $channel;
+
+    public function setChannel(Notifieble $notify)
+    {
+        $this->channel = $notify;
+    }
+
+    public function sendMessage()
+    {
+        $this->channel->sendMessage("Hello");
+    }
+}
+
+
+interface Notifieble
+{
+    public function sendMessage(string $message);
+}
+
+
+class SmsNotify implements Notifieble
+{
+    public function sendMessage(string $message)
+    {
+        echo "Отправленно SMS c текстом" . $message;
+    }
+}
+
+
+class TelegramNotify implements Notifieble
+{
+    public function sendMessage(string $message)
+    {
+        echo "Отправленно сообщение в телеграм c текстом" . $message;
+    }
+}
+
+
+$Ivan->setChannel(new SmsNotify());
+$Ivan->sendMessage("Привет");

@@ -2,11 +2,11 @@
 
 class ShowRoom
 {
-    private $car;
+    public $cars;
 
     public function addCar(CarInterface $car)
     {
-        $this->car=$car;
+        $this->cars[]=$car;
     }
 }
 
@@ -15,9 +15,9 @@ interface CarInterface
 {
     public function onEngine();
     public function offEngine();
-
     public function __construct(EngineInterface $engine);
 }
+
 
 interface EngineInterface
 {
@@ -25,27 +25,35 @@ interface EngineInterface
     public function off();
 }
 
+
+
+
 class SuperEngine implements EngineInterface
 {
     public function on()
     {
-        // TODO: Implement on() method.
+       echo "Супер двигатель запущен";
     }
+
     public function off()
     {
-        // TODO: Implement off() method.
+        echo "Супер двигатель заглушен";
     }
 }
+
+
+
 
 class anotherEngine implements EngineInterface
 {
     public function on()
     {
-        // TODO: Implement on() method.
+        echo "Другой двигатель запущен";
     }
+
     public function off()
     {
-        // TODO: Implement off() method.
+        echo "Другой двигатель заглушен";
     }
 }
 
@@ -53,24 +61,26 @@ class StandartEngine implements EngineInterface
 {
     public function on()
     {
-        // TODO: Implement on() method.
+        echo "Стандарт двигатель запущен";
     }
+
     public function off()
     {
-        // TODO: Implement off() method.
+        echo "Другой двигатель заглушен";
     }
 }
 
 class Tractor implements CarInterface
 {
     private $engine;
+
     public function onEngine()
     {
-        // TODO: Implement onEngine() method.
+       $this->engine->on();
     }
     public function offEngine()
     {
-        // TODO: Implement offEngine() method.
+        $this->engine->off();
     }
 
     public function __construct(EngineInterface $engine)
@@ -88,19 +98,21 @@ class Tractor implements CarInterface
 class Car implements CarInterface
 {
     private $engine;
+
     public function onEngine()
     {
-        // TODO: Implement onEngine() method.
+        $this->engine->on();
     }
     public function offEngine()
     {
-        // TODO: Implement offEngine() method.
+        $this->engine->off();
     }
 
     public function __construct(EngineInterface $engine)
     {
         $this->engine=$engine;
     }
+
     public function vezti_v_club()
     {
         //везет девочек в клуб
@@ -110,13 +122,14 @@ class Car implements CarInterface
 class Truck implements CarInterface
 {
     private $engine;
+
     public function onEngine()
     {
-        // TODO: Implement onEngine() method.
+        $this->engine->on();
     }
     public function offEngine()
     {
-        // TODO: Implement offEngine() method.
+        $this->engine->off();
     }
 
     public function __construct(EngineInterface $engine)
@@ -132,14 +145,19 @@ class Truck implements CarInterface
 
 
 
-$car_one = new Tractor( new StandartEngine());
-$car_two = new Car( new SuperEngine());
+$car_one = new Tractor(new StandartEngine());
+$car_two = new Car(new SuperEngine());
 $car_three = new Truck( new anotherEngine());
 
 var_dump($car_three);
-
 
 $mySalon = new ShowRoom();
 $mySalon->addCar($car_one);
 $mySalon->addCar($car_two);
 $mySalon->addCar($car_three);
+
+
+
+foreach ($mySalon->cars as $car){
+    $car->onEngine();
+}
