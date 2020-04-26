@@ -2,7 +2,7 @@
 
 abstract class Content {
 
-    private $message;
+    protected $message;
 
     public abstract function printing();
 
@@ -16,28 +16,25 @@ abstract class Content {
 
 class Article extends Content
 {
-    private $message;
     public function printing()
     {
-        echo $this->message. "</p>";
+        echo $this->message;
     }
 }
 
 class News extends Content
 {
-    private $message;
     public function printing()
     {
-        echo $this->message. "</p>";
+        echo $this->message;
     }
 }
 
 class Sale extends Content
 {
-    private $message;
     public function printing()
     {
-        echo $this->message. "</p>";
+        echo $this->message;
     }
 }
 
