@@ -14,23 +14,7 @@ class User
 
     public function notification($message)
     {
-        if ($this->channel == SmsChannel::class)
-        {
-            $this->channel->sendMessage($message);
-        }
-        else if ($this->channel == TelegramChannel::class)
-        {
-            $this->channel->sendMessage($message);
-        }
-        else if ($this->channel == ViberChannel::class)
-        {
-            $this->channel->sendMessage($message);
-        }
-        else
-        {
-            die;
-        }
-
+        $this->channel->sendMessage($message);
     }
 }
 
