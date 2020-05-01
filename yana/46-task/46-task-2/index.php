@@ -31,10 +31,16 @@ class Airplane extends Transport
 }
 
 $myCar=new Car(20);
-$myCar->zalit_benzin();
-$myCar->move();
-
 $myAirplane=new Airplane(1000);
-$myAirplane->zalit_benzin();
-$myAirplane->move();
+
+$transp = [];
+
+$transp[0]=$myCar;
+$transp[1]=$myAirplane;
+
+foreach ($transp as $one_tr)
+{
+    $one_tr->zalit_benzin();
+    $one_tr->move();
+}
 

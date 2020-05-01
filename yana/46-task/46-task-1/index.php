@@ -71,13 +71,18 @@ class Triangle implements Figure
 }
 
 $my_Circle=new Circle(5);
-$my_Circle->calc();
-
 $my_Square=new Square(3);
-$my_Square->calc();
-
 $my_Rectangle=new Rectangle(6, 3);
-$my_Rectangle->calc();
-
 $my_Triangle=new Triangle(5, 7);
-$my_Triangle->calc();
+
+$figures = [];
+
+$figures[0]=$my_Circle;
+$figures[1]=$my_Square;
+$figures[2]=$my_Rectangle;
+$figures[3]=$my_Triangle;
+
+foreach ($figures as $figure)
+{
+    $figure->calc();
+}
