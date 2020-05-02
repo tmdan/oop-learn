@@ -1,6 +1,6 @@
 <?php
 
-class User implements ProductInterface
+class User implements ShoppingCartInterface, OrderInterface
 {
     public $name;
     public $email;
@@ -32,6 +32,18 @@ class Product implements ProductInterface
     }
 }
 
+Interface ShoppingCartInterface
+{
+    public function addProduct(ProductInterface $product);
+    public function deleteProduct(ProductInterface $product);
+    public function getProducts();
+}
+
+Interface OrderInterface
+{
+    public function makeOrder();
+}
+
 Trait ShoppingCart
 {
     public $basket = [];
@@ -61,9 +73,9 @@ Trait Order
 
     public function makeOrder ()
     {
-        if ($this->shoppingcart->basket != NULL)
+        if (count($this->basket) > 0)
         {
-            $this->shoppingcart->getProducts();
+            $this->getProducts();
             //далее функции для продолжения оформления и оплаты
         }
         else
@@ -80,3 +92,4 @@ $Tovar2 = new Product("туфли", 550);
 
 $Ya->addProduct($Tovar1);
 $Ya->addProduct($Tovar2);
+$Ya->getProducts();
