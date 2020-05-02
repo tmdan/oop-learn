@@ -55,6 +55,7 @@ class Human
     }
 }
 
+
 $Ivan = new Human();
 $Ivan->setAnimal(new Cat());
 $Ivan->setAnimal(new Snake());
